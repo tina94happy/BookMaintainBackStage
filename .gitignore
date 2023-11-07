@@ -2,3 +2,6 @@
 ###################
 *.config
 *.xml
+
+# 不要忽略packages.config文件
+!**/packages.config
