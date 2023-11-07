@@ -1,0 +1,12 @@
+C:\Users\tina_wt_su\source\workshop_要上傳的資料\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\bin\Debug\BookMaintainBackStage.Model.dll
+C:\Users\tina_wt_su\source\workshop_要上傳的資料\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\bin\Debug\BookMaintainBackStage.Model.pdb
+C:\Users\tina_wt_su\source\workshop_要上傳的資料\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\obj\Debug\BookMaintainBackStage.Model.csproj.AssemblyReference.cache
+C:\Users\tina_wt_su\source\workshop_要上傳的資料\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\obj\Debug\BookMaintainBackStage.Model.csproj.CoreCompileInputs.cache
+C:\Users\tina_wt_su\source\workshop_要上傳的資料\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\obj\Debug\BookMaintainBackStage.Model.dll
+C:\Users\tina_wt_su\source\workshop_要上傳的資料\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\obj\Debug\BookMaintainBackStage.Model.pdb
+C:\Users\tina_wt_su\source\tina_wt_su\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\bin\Debug\BookMaintainBackStage.Model.dll
+C:\Users\tina_wt_su\source\tina_wt_su\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\bin\Debug\BookMaintainBackStage.Model.pdb
+C:\Users\tina_wt_su\source\tina_wt_su\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\obj\Debug\BookMaintainBackStage.Model.csproj.AssemblyReference.cache
+C:\Users\tina_wt_su\source\tina_wt_su\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\obj\Debug\BookMaintainBackStage.Model.csproj.CoreCompileInputs.cache
+C:\Users\tina_wt_su\source\tina_wt_su\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\obj\Debug\BookMaintainBackStage.Model.dll
+C:\Users\tina_wt_su\source\tina_wt_su\Course6_BackEnd\BookMaintainBackStage\BookMaintainBackStage.Model\obj\Debug\BookMaintainBackStage.Model.pdb

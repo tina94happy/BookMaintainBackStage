@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+	<object id="BookController"  type="BookMaintainBackStage.Controllers.BookController,BookMaintainBackStage" singleton="false">
+		<property name="codeService" ref="CodeService" /> <!--對到<object id="CodeService"-->
+		<property name="bookService" ref="BookService" />
+	</object>
+
+	<object id="CodeService" type="BookMaintainBackStage.Service.CodeService,BookMaintainBackStage.Service">
+		<property name="codeDao" ref="CodeDao" />
+	</object>
+
+	<object id="BookService" type="BookMaintainBackStage.Service.BookService,BookMaintainBackStage.Service">
+		<property name="bookDao" ref="BookDao" />
+	</object>
+
+	<!--測試資料-->
+	<!--<object id="CodeDao" type="BookMaintainBackStage.Dao.MockCodeDao,BookMaintainBackStage.Dao"/>
+	<object id="BookDao" type="BookMaintainBackStage.Dao.BookTestDao,BookMaintainBackStage.Dao"/>-->	                                                    
+	<!--實際資料-->
+	                           <!--Namespace+class-->
+	<object id="CodeDao" type="BookMaintainBackStage.Dao.CodeDao,BookMaintainBackStage.Dao"/>
+	<object id="BookDao" type="BookMaintainBackStage.Dao.BookDao,BookMaintainBackStage.Dao"/>
+
+
+</objects>

@@ -1,0 +1,6 @@
+BOOK_STATUS	A	書籍狀態	可以借出
+BOOK_STATUS	B	書籍狀態	已借出
+BOOK_STATUS	U	書籍狀態	不可借出
+BOOK_STATUS	C	書籍狀態	已借出(未領)
+BLOOD_TYPE	A	血型	A型
+BLOOD_TYPE	O	血型	O型

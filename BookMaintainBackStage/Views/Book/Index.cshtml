@@ -1,0 +1,86 @@
+﻿
+<title>首頁</title>
+<style>
+    .fake-link {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+<main>
+    <h3 class="navbar-title">圖書維護</h3>
+
+
+    <form action="/" method="post">
+        <div class="form-horizontal">
+            
+            @*//書籍資料查詢框*@
+            @*//書名*@
+            <div class="form-group">
+                <label class="control-label col-md-1" for="BookName">書名</label>
+                <div class="col-md-3">
+                    <input class="form-control" id="BookNameSearch" name="BookName" type="text" />
+                </div>
+            </div>
+
+            @*//圖書類別*@
+            <div class="form-group">
+                <label class="control-label col-md-1" for="BookClassID">圖書類別</label>
+                <div class="col-md-3">
+                    <select id="bookClassSelector"></select>
+                </div>
+            </div>
+
+            @*//借閱狀態*@
+            <div class="form-group">
+                <label class="control-label col-md-1" for="BookStatusCode">借閱狀態</label>
+                <div class="col-md-3">
+                    <select id="bookStatusSelector"></select>
+                </div>
+            </div>
+
+            @*//借閱人*@
+            <div class="form-group">
+                <label class="control-label col-md-1" for="KeeperID">借閱人</label>
+                <div class="col-md-3">
+                    <select id="keeperSelector"></select>
+                </div>
+            </div>
+
+            @*//相關按鈕*@
+            <div class="form-group">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-11">
+                    <input type="submit" value="查詢" id="bookSearchBtn" name="bookSearchBtn" class="btn btn-default" />
+                    <input type="reset" value="清除" id="bookSearchResetBtn" name="bookSearchResetBtn" class="btn btn-default" />
+                    <a class="btn btn-default" href="/Book/Create" id="bookAddBtn">新增</a>
+
+                </div>
+            </div>
+
+            <div id="grid"></div>
+
+
+        </div>
+    </form>
+</main>
+@*<script typt="text/javascript">
+        //借閱狀態
+        $("#bookStatusSelector").kendoDropDownList({
+            dataTextField: "Text",
+            dataValueField: "Value",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "/Book/GetBookStatusData",
+                        dataType: "json",
+                        type: "post"
+                    }
+                }
+            },
+            optionLabel: "請選擇"
+        });
+    </script>*@
+<script src="~/Scripts/bookMaintainIndex.js"></script>
+<script src="~/Scripts/bookMaintain.js"></script>

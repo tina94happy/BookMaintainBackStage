@@ -1,0 +1,24 @@
+BK	Banking
+DB	Database
+DH	Dataware House
+EIS	EIS
+IN	Internet
+LG	Languages
+LR	Laws And Rules
+MG	Management
+MK	Marketing
+NW	Networking
+OS	Operating System
+SC	Security
+SE	Software Engineering
+SI	System Integration
+EAI	應用系統整合
+OT	Others
+CHA	大陸相關書籍
+TRCD	內部訓練課程光碟
+SECD	研討會/產品介紹光碟
+MENU	Menu 操作手冊
+ATCD	公司內部各項活動光碟
+FM	家庭保健
+TP	休閒旅遊
+CCS	客戶案例分享

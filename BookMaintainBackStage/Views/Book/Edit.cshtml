@@ -1,0 +1,89 @@
+﻿
+
+
+
+<title>編輯書籍</title>
+<script src="~/Scripts/bookMaintain.js"></script> @*CRUD*@
+<script src="~/Scripts/bookEdit.js"></script>     @*Edit需要的function*@
+
+
+<main>
+    <h2>編輯書籍</h2>
+    <div class="form-horizontal">
+        <form>
+            @*//書籍資料查詢框*@
+            @*//書名*@
+            <div class="form-group">
+                <label class="control-label col-md-2 star" for="BookName">書名</label>
+                <div class="col-md-4">
+                    <input class="form-control" id="BookName" name="BookName" maxlength="150" type="text" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2 star" for="BookAuthor">作者</label>
+                <div class="col-md-4">
+                    <input class="form-control" id="BookAuthor" name="30" maxlength="30" type="text" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2 star" for="BookPublisher">出版商</label>
+                <div class="col-md-4">
+                    <input class="form-control" id="BookPublisher" name="20" maxlength="20" type="text" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2 star" for="BookNote">內容簡介</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="BookNote" name="1000" maxlength="1000" type="text" required rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2 star" for="BookBoughtDate">購書日期</label>
+                <div class="col-md-3">
+                    <input class="form-control" id="BookBoughtDate" name="BookBoughtDate" type="Date" value="" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2 star" for="BookClassID">類別代號</label>
+                <div class="col-md-4">
+                    <select id="bookClassSelector" name="bookClassSelector" required></select>
+                </div>
+            </div>
+
+            @*//借閱狀態*@
+            <div class="form-group">
+                <label class="control-label col-md-2 star" for="BookStatusCode">借閱狀態</label>
+                <div class="col-md-4">
+                    <select id="bookStatus_E" name="bookStatusSelector" required></select>
+                </div>
+            </div>
+
+            @*//借閱人*@
+            <div class="form-group">
+                <label class="control-label col-md-2" for="KeeperID">借閱人</label>
+                <div class="col-md-4">
+                    <select id="keeperSelector" name="keeperSelector"></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-4">
+                    <a class="btn btn-default" href="#" id="btnDelete">刪除</a>
+                    @*<input class="hidBookStatus" id="hidBookStatus" name="BookStatusCode" type="hidden" value="B" />
+                    *@
+                    <input type="submit" value="存檔" class="btn btn-default" id="submitBtn" />
+                </div>
+            </div>
+
+        </form>
+        <div>
+            <a class="btn btn-default" href="/">返回</a>
+        </div>
+    </div>
+</main>
+

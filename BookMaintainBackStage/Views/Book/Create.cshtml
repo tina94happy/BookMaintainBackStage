@@ -1,0 +1,141 @@
+﻿<title>新增書籍</title>
+<main>
+    <h2>新增書籍</h2>
+    <div class="form-horizontal">
+        <form action="/Book/Create" id="CreateForm" method="post">
+            <input name="__RequestVerificationToken" type="hidden" value="56NuMUWzm-RmjH-Gmkse-YRKtHCSVHo-tlrOwUsbNfS8S85_D5Uk9ByaFAZ1LBRn-SkxomnBwPjSOv9QULxselTlZuspey6hHHXLBHbf0XA1" />        <div class="form-horizontal">
+                <hr />
+
+                <div class="form-group">
+                    <label class="control-label col-md-2 star" for="BookName">書名</label>
+                    <div class="col-md-4">
+                        <input data-val="true" data-val-length="此欄位僅接受200個字" data-val-length-max="200" data-val-required="此欄位必填" required htmlAttributes="{ class = form-control }" id="BookName" name="BookName" type="text" value="" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BookName" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2 star" for="BookAuthor">作者</label>
+                    <div class="col-md-4">
+                        <input data-val="true" data-val-length="此欄位僅接受30個字" data-val-length-max="30" data-val-required="此欄位必填" required htmlAttributes="{ class = form-control }" id="BookAuthor" name="BookAuthor" type="text" value="" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BookAuthor" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2 star" for="BookPublisher">出版商</label>
+                    <div class="col-md-4">
+                        <input data-val="true" data-val-length="此欄位僅接受20個字" data-val-length-max="20" data-val-required="此欄位必填" required htmlAttributes="{ class = form-control }" id="BookPublisher" name="BookPublisher" type="text" value="" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BookPublisher" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2 star" for="BookNote">內容簡介</label>
+                    <div class="col-md-4">
+                        <textarea cols="20" data-val="true" data-val-length="此欄位僅接受1200個字" data-val-length-max="1200" data-val-required="此欄位必填" required htmlAttributes="{ class = form-control }" id="BookNote" name="BookNote" rows="2">
+</textarea>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BookNote" data-valmsg-replace="true"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="BookBoughtDate star">購書日期</label>
+                    <div class="col-md-3">
+                        <input data-val="true" data-val-required="此欄位必填" required htmlAttributes="{ class = form-control }" id="BookBoughtDate" name="BookBoughtDate" type="Date" value="" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="BookBoughtDate" data-valmsg-replace="true"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-2 star" for="BookClassName">圖書類別</label>
+                    <div class="col-md-4">
+                        <select id="bookClassSelector" name="bookClassSelector" required></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                        <input type="submit" value="新增" class="btn btn-default" id="CreateBtn" />
+                    </div>
+                </div>
+                <!-- 提示元素 -->
+
+
+
+            </div>
+        </form>
+        <div>
+            <a class="btn btn-default" href="/">返回</a>
+        </div>
+    </div>
+</main>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //驗證規則設定
+        validator = $("form").kendoValidator({
+            rules: {
+                // 特定id需參照dateValid進行驗證
+                dateValid: function (input) {
+                    if (input.is("[id='BookBoughtDate']") && input.val() != "") {
+                        return $('#BookBoughtDate').data('kendoDatePicker').value() ? true : false
+                    }
+                    return true;
+                },
+                maxlength: function (input) {
+                    if (input.is("[maxlength]")) {
+                        var maxLength = parseInt(input.attr("maxlength"));
+                        if (input.val().length > maxLength) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            },
+            messages: { //custom rules messages
+                dateValid: "日期格式錯誤",
+                required: "此為必填欄位",
+                maxlength: "此欄位最多只能輸入 {0} 個字"  //TODO: 這樣需要改name=20 很怪
+            }
+        }).data("kendoValidator");
+        $("#BookBoughtDate").kendoDatePicker({
+            format: "yyyy-MM-dd",
+            value: new Date(),
+            dateInput: true
+        });
+        //圖書類別
+        initDropDownList("#bookClassSelector", "GetBookCategoryData");
+        //[新增]btn
+        $("#CreateBtn").click(function (e) {
+            e.preventDefault();
+            if (validator.validate()) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Book/Create",
+                    data: {
+                        BookName: $('#BookName').val(),
+                        BookAuthor: $("#BookAuthor").val(),
+                        BookPublisher: $("#BookPublisher").val(),
+                        BookNote: $("#BookNote").val(),
+                        BookBoughtDate: kendo.toString($("#BookBoughtDate").data("kendoDatePicker").value(), "yyyy-MM-dd"),
+                        BookClassID: $("#bookClassSelector").data("kendoDropDownList").value(),
+                    },
+                    datatype: "json",
+                    success: function (res) {
+                        alert("新增成功")
+                        location.reload();
+                    },
+                    error: function (error) {
+                        alert("系統發生錯誤")
+                    }
+                });
+            }
+
+        })
+
+    });
+    </script>
+

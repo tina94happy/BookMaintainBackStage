@@ -1,0 +1,86 @@
+﻿
+
+<title>書籍借閱紀錄</title>
+<main>
+    <h2>借閱紀錄</h2>
+
+    <div style="float: right;">
+        <a class="btn btn-default" href="/">返回</a>
+    </div>
+    <br />
+    <br />
+    @*借閱紀錄table*@
+    <table class="table table-bordered table-striped sortable" id="borrowedRecordTable">
+        <thead>
+            <tr>
+                <th>借閱日期</th>
+                <th>借閱人員編號</th>
+                <th>英文姓名</th>
+                <th>中文姓名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <div id="response-container">
+
+            </div>
+        </tbody>
+
+        
+
+
+    </table>
+
+</main>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //取得url參數
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+            return false;
+        };
+
+        ///取得借閱紀錄
+        $.ajax({
+            type: "POST",
+            url: "/Book/getBorrowedRecord",
+            data: {
+                BookID: getUrlParameter('BookID'),
+            },
+            dataType: "json",
+            success: function (responseArray) {
+                // 取得要放置表格的元素
+                const $tableBody = $("#borrowedRecordTable");
+
+                // 遍歷 array，將每個元素轉換成 <tr> 和 <td> 元素，並加入到表格中
+                $.each(responseArray, function (index, item) {
+                    // 建立 <tr> 元素，並將其加入到表格中
+                    $tableBody.append(
+                        $("<tr>").append(
+                            // 建立 <td> 元素，並設定其內容和樣式類別
+                            $("<td>").addClass("col-md-3").text(item.LendDate),
+                            $("<td>").addClass("col-md-3").text(item.KeeperID),
+                            $("<td>").addClass("col-md-3").text(item.UserEname),
+                            $("<td>").addClass("col-md-3").text(item.UserCname)
+                        )
+                    );
+                });
+
+            }, error: function (error) {
+                alert("系統發生錯誤");
+            }
+        });
+
+    });
+</script>
